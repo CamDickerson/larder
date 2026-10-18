@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-paper: #f3eee6;
+  --color-card: #fffdf9;
+  --color-ink: #231e19;
+  --color-muted: #5e554c;
+  --color-line: #e3d8c8;
+  --color-clay: #a34722;
+  --color-clay-ink: #fff8f3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #161311;
+    --color-card: #221e1a;
+    --color-ink: #f6f1ea;
+    --color-muted: #c2b4a6;
+    --color-line: #3c342e;
+    --color-clay: #e18455;
+    --color-clay-ink: #2a140c;
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 2px;
+  }
+
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .larder-press {
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      border-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .larder-press:active {
+    transform: scale(0.98);
+  }
+}
